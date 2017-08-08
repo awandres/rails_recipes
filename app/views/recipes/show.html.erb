@@ -5,9 +5,11 @@
 <div class="container1" style='width:initial;'>
 
 <h3>Ingredients</h3>
+<ul>
 <% @ingredients.each do |ingredient| %>
-<div class='ingredient_div'><%= ingredient.name %> </div>
+<li> <%= ingredient.name %> </li>
 <% end %>
+</ul>
 
 </div>
 
