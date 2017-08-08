@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+User.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 
-rec1 = Recipe.create({name: "Recipe 1", cooktime: 30, img_url: 'blah.com' })
-rec2 = Recipe.create({name: "Recipe 2", cooktime: 15, img_url: 'blah.com' })
-rec3 = Recipe.create({name: "Recipe 3", cooktime: 45, img_url: 'blah.com' })
+bob = User.create(email: 'bob@gmail.com', password: 'password')
+rec1 = bob.recipes.create({name: "Recipe 1", cooktime: 30, img_url: 'blah.com'})
+rec2 = bob.recipes.create({name: "Recipe 2", cooktime: 15, img_url: 'blah.com'})
+rec3 = bob.recipes.create({name: "Recipe 3", cooktime: 45, img_url: 'blah.com'})
 
 ing1 = Ingredient.create({name: 'Ingredient 1' })
 ing2 = Ingredient.create({name: 'Ingredient 2' })

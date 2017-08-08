@@ -1,10 +1,14 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+
+
 def index
-  @recipes = Recipe.all
+  @recipes = current_user.recipes.all
+
 end
 
 def show
-  @recipe = Recipe.find(params[:id])
+  @recipe = current_user.recipes.find(params[:id])
   @ingredients = @recipe.ingredients.all
 end
 
@@ -14,8 +18,8 @@ def new
 end
 
 def create
-  @recipe = Recipe.create!(recipe_params)
-  redirect_to recipes_path
+  @recipe = current_user.recipes.create!(recipe_params)
+  redirect_to recipe_path(@recipe)
 end
 
 def edit

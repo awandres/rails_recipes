@@ -1,9 +1,28 @@
-<h1>Your Recipe List</h1>
 
-<ul>
-<% @recipes.each do |recipe| %>
-<li><%= link_to recipe.name , recipe_path(recipe)  %></li>
-<% end %>
-</ul>
+<div class= 'container2'>
+<div style= 'width:160px;'>
 
-<h4><%= link_to 'Create New Recipe', new_recipe_path %> </h4>
+</div>
+    <div class='container1'>
+      <h1 style='text-align:center;'>Your Recipe List</h1>
+    <% @recipes.each do |recipe| %>
+    <div class = 'recipe_div'><%= link_to recipe.name , recipe_path(recipe), style: 'text-decoration:none; color:black'  %></div>
+    <% end %>
+    </div>
+
+    <div class='container3'>
+      <div>
+    <h3 style='text-decoration:underline;'>Your Shopping List</h3>
+    <ul>
+    <% @recipes.each do |recipe| %>
+    <% recipe.ingredients.each do |ingredients| %>
+    <li><%= ingredients.name  %></li>
+    <% end %>
+    <% end %>
+    </ul>
+    </div>
+
+  </div>
+</div>
+<hr>
+<h4 style='text-align:center;'><%= link_to 'Create New Recipe', new_recipe_path %> </h4>

@@ -1,16 +1,25 @@
-<h1>New Recipe</h1>
+<div style="display:flex;flex-direction:column; align-items:center; ">
+  <h1>New Recipe</h1>
 
 <%= form_for @recipe  do |f| %>
-
-  <%= f.label :name %>
+ <div style='margin:10px;'>
+  <%= f.label 'Name :' %> 
   <%= f.text_field :name %>
+</div>
 
-  <%= f.label :cooktime %>
+ <div style='margin:10px;'>
+  <%= f.label 'Cook Time :' %>
   <%= f.number_field :cooktime %>
+</div>
 
-  <%= f.label :img_url %>
+ <div style='margin:10px;'>
+  <%= f.label 'Image URL :' %>
   <%= f.text_field :img_url %>
-  <h3>Ingredients</h3>
+</div>
+
+
+
+  <h3 style='margin-left:65px;'>Ingredients</h3>
 <ul>
   <%= f.fields_for :ingredients do |ingredient| %>
       <li>
@@ -21,7 +30,12 @@
       <% end %>
     </ul>
 
-  <%= f.submit %>
+ <%= f.submit %>
 <% end  %>
 
+</div>
+
+<hr style='margin-top:40px;'>
+<footer style='text-align:center;'>
 <%= link_to 'Back', :back %>
+</footer>

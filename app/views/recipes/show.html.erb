@@ -1,12 +1,18 @@
-<h1><%= @recipe.name %></h1>
-<h4>Cooktime - <%= @recipe.cooktime %> minutes</h4>
+<div class = 'image_div' ><img src="<%= @recipe.img_url %>" alt=""> </div>
+<div class = 'recipe_info'><h1><%= @recipe.name %></h1>
+<h4>Cooktime - <%= @recipe.cooktime %> minutes</h4></div>
+
+<div class="container1" style='width:initial;'>
 
 <h3>Ingredients</h3>
-<ul>
 <% @ingredients.each do |ingredient| %>
-<li> <%= ingredient.name %> </li>
+<div class='ingredient_div'><%= ingredient.name %> </div>
 <% end %>
-</ul>
 
+</div>
+
+<hr style='margin-top:50px;'>
+<footer style='display:flex; justify-content:space-around;'>
 <h4><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></h4>
-<%= link_to 'Back to Main', recipes_path %>
+<h4><%= link_to 'Back to Main', recipes_path %></h4>
+</footer>

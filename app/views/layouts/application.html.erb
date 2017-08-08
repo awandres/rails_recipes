@@ -9,9 +9,20 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header style= 'background:grey; height:30px; width:100%;'>
+    <% if !current_user %>
+    <%= link_to "Sign Up", new_user_registration_path %>
+    <%= link_to "Sign In", new_user_session_path %>
+    <% else  %>
 
+    <p style='text-align:right;'><%= current_user.email %> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+    <% end %>
+
+  </header>
+<div style='text-align:center;'>
+  <p class="notice" style="margin-top:20px;"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
 
     <%= yield %>
   </body>
