@@ -1,0 +1,27 @@
+<%= form_for @recipe do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label 'Cook Time' %>
+<%= f.number_field :cooktime %>
+
+<%= f.label 'Image URL' %>
+<%= f.text_field :img_url %>
+<ul>
+<%= f.fields_for :ingredients do |ingredient| %>
+    <li>
+
+      <%= ingredient.text_field :name %> <%= ingredient.check_box :_destroy%>
+
+    </li>
+
+    <% end %>
+  </ul>
+
+<%= f.submit %>
+<% end  %>
+
+<%= link_to ' Delete Recipe ', recipe_path(@recipe), method: :delete, class: 'delete' %>
+<br>
+<%= link_to 'Back', :back %>

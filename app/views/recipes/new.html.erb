@@ -1,0 +1,27 @@
+<h1>New Recipe</h1>
+
+<%= form_for @recipe  do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :cooktime %>
+  <%= f.number_field :cooktime %>
+
+  <%= f.label :img_url %>
+  <%= f.text_field :img_url %>
+  <h3>Ingredients</h3>
+<ul>
+  <%= f.fields_for :ingredients do |ingredient| %>
+      <li>
+
+        <%= ingredient.text_field :name %>
+      </li>
+
+      <% end %>
+    </ul>
+
+  <%= f.submit %>
+<% end  %>
+
+<%= link_to 'Back', :back %>
