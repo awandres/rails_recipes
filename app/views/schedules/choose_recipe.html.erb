@@ -1,0 +1,7 @@
+<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+  <% @recipes.each do |recipe| %>
+  <%= link_to add_recipe_schedule_path(recipe), method: :put, style: 'text-decoration:none; color:black;'  do %>
+  <div class = 'recipe_div'><%= recipe.name %></div>
+<% end %>
+<% end %>
+<% end %>

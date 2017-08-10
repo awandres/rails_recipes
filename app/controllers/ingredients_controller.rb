@@ -1,3 +1,8 @@
 class IngredientsController < ApplicationController
 
-end 
+def shopping_list
+  @recipes = current_user.recipes.all
+  
+end
+
+end

@@ -1,0 +1,20 @@
+<h3>Weekly Schedule </h3>
+
+
+<div class = 'container1b'>
+<% @schedules.each do |schedule|  %>
+<h3><%=schedule.day.name  %></h3>
+<% if schedule.recipe %>
+<%= link_to recipe_path(schedule.recipe), style: 'text-decoration:none; color:black;'  do %>
+<div class = 'recipe_div'><%= schedule.recipe.name %></div>
+<% end %>
+<%= link_to '(-)', remove_recipe_schedule_path(schedule.recipe), method: :delete %>
+
+<% else  %>
+<%= link_to 'Add Recipe', choose_recipe_schedule_path(schedule) %>
+<% end  %>
+
+<% end %>
+</div>
+
+<h4><%= link_to 'Back to Main', recipes_path %></h4>

@@ -1,0 +1,13 @@
+<div class="container1b">
+
+<h3>Ingredients To Buy</h3>
+<ul>
+<% @recipes.each do |recipe| %>
+<% recipe.ingredients.each do |ingredient| %>
+<li> <%= ingredient.name %> </li>
+<% end  %>
+<% end %>
+</ul>
+
+<%= link_to 'Back to Main', recipes_path %>
+</div>

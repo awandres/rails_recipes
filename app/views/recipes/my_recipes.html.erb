@@ -1,0 +1,8 @@
+<div class='container1'>
+  <h1 style='text-align:center;'>Meals</h1>
+<% @recipes.each do |recipe| %>
+<%= link_to recipe_path(recipe), style: 'text-decoration:none; color:black;'  do %>
+<div class = 'recipe_div'><%= recipe.name %></div>
+<% end %>
+<% end %>
+</div>

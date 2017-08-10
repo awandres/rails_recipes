@@ -18,12 +18,16 @@ def new
 end
 
 def create
-  @recipe = Recipes.create!(recipe_params)
+  @recipe = current_user.recipes.create!(recipe_params)
   redirect_to recipe_path(@recipe)
 end
 
 def edit
   @recipe = Recipe.find(params[:id])
+end
+
+def my_recipes
+  @recipes = current_user.recipes.all
 end
 
 def update

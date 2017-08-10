@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+
 Recipe.destroy_all
 Ingredient.destroy_all
 
@@ -65,3 +65,19 @@ List.create({recipe: rec5, ingredient: ing22})
 List.create({recipe: rec5, ingredient: ing23})
 List.create({recipe: rec5, ingredient: ing24})
 List.create({recipe: rec5, ingredient: ing25})
+
+mon = Day.create(name: 'Monday')
+tues = Day.create(name: 'Tuesday')
+wed = Day.create(name: 'Wednesday')
+thurs = Day.create(name: 'Thursday')
+fri = Day.create(name: 'Friday')
+sat = Day.create(name: 'Saturday')
+sun = Day.create(name: 'Sunday')
+
+bob.schedules.create({day: mon, recipe: rec1})
+bob.schedules.create({day: tues, recipe: rec2})
+bob.schedules.create({day: wed, recipe: rec3})
+bob.schedules.create({day: thurs, recipe: rec4})
+bob.schedules.create({day: fri, recipe: rec5})
+bob.schedules.create({day: sat, recipe: rec1})
+bob.schedules.create({day: sun, recipe: rec2})

@@ -4,7 +4,7 @@
 
 </div>
     <div class='container1'>
-      <h1 style='text-align:center;'>Meals</h1>
+      <h1 style='text-align:center;'>Your Recipe List</h1>
     <% @recipes.each do |recipe| %>
     <%= link_to recipe_path(recipe), style: 'text-decoration:none; color:black;'  do %>
     <div class = 'recipe_div'><%= recipe.name %></div>
@@ -15,8 +15,10 @@
   <div class='container3'>
     <% if current_user %>
     <div style='display:flex; flex-direction:column;'>
-      <%= link_to 'Recipe Book', recipes_path, style: 'font-size:20px; color:black; margin-bottom:15px;' %>
-      <%= link_to 'Shopping List', recipes_path, style: 'font-size:20px; color:black;q' %>
+      <%= link_to 'Recipe Book', my_recipes_path, style: 'font-size:20px; color:black; margin-bottom:15px;' %>
+      <%= link_to 'Weekly Schedule', schedules_path, style: 'font-size:20px; color:black;' %>
+      <%= link_to 'Shopping List', shopping_list_path, style: 'font-size:20px; color:black; margin-top:15px;' %>
+
     </div>
     <% end %>
       <!-- <div>
