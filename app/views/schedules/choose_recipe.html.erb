@@ -1,6 +1,9 @@
 <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
   <% @recipes.each do |recipe| %>
-  <%= link_to add_recipe_schedule_path(recipe), method: :put, style: 'text-decoration:none; color:black;'  do %>
+<!--
+This is kind of a hack to pass your recipe's id along with the schedule.id
+-->
+  <%= link_to add_recipe_schedule_path(@schedule, params: {schedule: {recipe_id: recipe.id}}), method: :put, style: 'text-decoration:none; color:black;'  do %>
   <div class = 'recipe_div'><%= recipe.name %></div>
 <% end %>
 <% end %>
