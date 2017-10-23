@@ -4,15 +4,18 @@ Rails.application.routes.draw do
 
   root 'recipes#index'
 
-
-
   get 'my_recipes', to: 'recipes#my_recipes'
   get 'shopping_list', to: 'ingredients#shopping_list'
 
+  resources :recipes
+  # The auto-generated nested ingredients route actions (index, create, new,
+  # edit, show, update, update, destroy) are not implemented in your
+  # IngredientsController
+  #
+  # resources :recipes do
+  #   resources :ingredients
+  # end
 
-  resources :recipes do
-  resources :ingredients
-end
   resources :schedules do
     resources :recipes
     member do
@@ -21,5 +24,4 @@ end
       put 'add_recipe'
     end
   end
-
 end

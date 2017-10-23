@@ -8,7 +8,11 @@
 <%= link_to recipe_path(schedule.recipe), style: 'text-decoration:none; color:black;'  do %>
 <div class = 'recipe_div'><%= schedule.recipe.name %></div>
 <% end %>
-<%= link_to '(-)', remove_recipe_schedule_path(schedule.recipe), method: :delete %>
+<!--
+This link_to previously used schedule.recipe, but the action is looking for the
+schedule.id as the url param
+-->
+<%= link_to '(-)', remove_recipe_schedule_path(schedule), method: :delete %>
 
 <% else  %>
 <%= link_to 'Add Recipe', choose_recipe_schedule_path(schedule) %>
